@@ -11,7 +11,7 @@ public class Solution {
         int numberThree = 1;
         String string = "00";
 
-        String result = numberTwo +""+string+""+numberOne+numberTwo+numberThree+""+string;
+        String result = numberTwo +""+string+""+(numberOne+numberTwo+numberThree)+""+string;
         System.out.println("Разгоняем Амиго на " + result + "%");
     }
 }

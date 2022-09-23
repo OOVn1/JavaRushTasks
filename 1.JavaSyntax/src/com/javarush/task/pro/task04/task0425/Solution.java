@@ -13,21 +13,21 @@ public class Solution {
 
 
     public static void main(String[] args) {
-        for (int a = 0; a < 10; a ++){
-            if (a == 9){
-                for(int i = 0; i<10; i++) {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (i == 9) {
                     System.out.print(bug);
-                }
-            }
-            else {
-                for (int s = 0; s < 10; s++) {
-                    if (a == 0 && s == 3) {
-                        System.out.print(robot);
-                    } else
-                        System.out.print(land);
+                } else if (i < 8 && j == 3) {
+                    System.out.print(hole);
+                } else if (i == 8 && j == 3) {
+                    System.out.print(robot);
+                } else {
+                    System.out.print(land);
                 }
             }
             System.out.println();
         }
     }
 }
+
+

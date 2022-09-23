@@ -8,14 +8,7 @@ import java.util.Scanner;
 
 public class Solution {
     public static void main(String[] args) {
-        int max = -20000000;
-        boolean isExit = false;
-        Scanner scanner = new Scanner (System.in);
-        while(true){
-            int a = scanner.nextInt();
-            if( a % 2 == 0 && max < a) max = a;
-
-        }
+        //напишите тут ваш код
 
     }
 }

@@ -8,7 +8,15 @@ import java.util.Scanner;
 
 public class Solution {
     public static void main(String[] args) {
-        //напишите тут ваш код
+        Scanner scanner = new Scanner  (System.in);
+        int max = Integer.MIN_VALUE;
+        while (scanner.hasNextInt()){
+            int number = scanner.nextInt();
+            if( number % 2 == 0 && number > max){
+                max = number;
+            }
+        }
 
+        System.out.println(max);
     }
 }

@@ -8,22 +8,17 @@ import java.util.Scanner;
 */
 
 public class Solution {
-    private static final String TRIANGLE_EXISTS = "треугольник существует";
-    private static final String TRIANGLE_NOT_EXISTS = "треугольник не существует";
-
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        double storona1 = scanner.nextDouble();
-        double storona2 = scanner.nextDouble();
-        double storona3 = scanner.nextDouble();
-        if (storona1 + storona2 > storona3 && storona1 + storona3 > storona2 && storona2 + storona3 > storona1){
-            System.out.println(TRIANGLE_EXISTS);}
-            else{
-                System.out.println(TRIANGLE_NOT_EXISTS);
-
-
+        Scanner scanner = new Scanner (System.in);
+        int n = scanner.nextInt();
+        int[] array = new int[n];
+        for (int i =0; i < array.length; i++){
+            array[i] = scanner.nextInt();
         }
-
-
+        int min = Integer.MAX_VALUE;
+        for (int i =0; i < args.length; i++){
+            if (array[i] < min) min = array[i];
+        }
+        System.out.println(min);
     }
 }

@@ -16,7 +16,7 @@ public class Solution {
             strings[j] = scanner.nextLine();
         }
         for(int i = 0; i < 6; i++){
-            if()
+            //if()
         }
         for (int i = 0; i < strings.length; i++) {
             System.out.print(strings[i] + ", ");

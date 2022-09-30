@@ -7,10 +7,26 @@ import java.util.Scanner;
 */
 
 public class Solution {
-    public static String[] strings = {"Hello", "Hello", "World", "Java", "Tasks", "World"};
+    public static String[] strings;
 
     public static void main(String[] args) {
-        //напишите тут ваш код
+        Scanner scanner = new Scanner(System.in);
+        strings = new String[6];
+        for (int i = 0; i < strings.length; i++) {
+            strings[i] = scanner.nextLine();
+        }
+        for (int i = 0; i < strings.length; i++) {
+            String str = strings[i];
+            for (int j = i + 1; j < strings.length; j++) {
+                if (str == null) {
+                    break;
+                }
+                if (str.equals(strings[j])) {
+                    strings[i] = null;
+                    strings[j] = null;
+                }
+            }
+        }
         for (int i = 0; i < strings.length; i++) {
             System.out.print(strings[i] + ", ");
         }

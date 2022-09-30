@@ -7,17 +7,10 @@ import java.util.Scanner;
 */
 
 public class Solution {
-    public static String[] strings;
+    public static String[] strings = {"Hello", "Hello", "World", "Java", "Tasks", "World"};
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        strings = new String[6];
-        for(int j = 0; j < 6; j++){
-            strings[j] = scanner.nextLine();
-        }
-        for(int i = 0; i < 6; i++){
-            //if()
-        }
+        //напишите тут ваш код
         for (int i = 0; i < strings.length; i++) {
             System.out.print(strings[i] + ", ");
         }

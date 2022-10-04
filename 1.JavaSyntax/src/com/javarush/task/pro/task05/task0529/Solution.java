@@ -10,10 +10,11 @@ public class Solution {
     public static String robotank = "☖";
     public static String empty = "_";
     public static String hit = "🎯";
+    public static int width = 30;
+    public static int height = 10;
+    public static String[][] field = new String[height][width];
 
     public static void main(String[] args) {
-        int width = 30;
-        int height = 10;
-
+        //напишите тут ваш код
     }
 }

@@ -12,33 +12,37 @@ public class Solution {
     public static String hit = "🎯";
     public static int width = 30;
     public static int height = 10;
-    public static String[][] field = new String[height][width ];
-    public static int[][] bombs = new int [height][width];
+    public static String[][] field = new String[height][width];
+    public static int[][] bombs = new int[height][width];
 
     public static void main(String[] args) {
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[i].length; j++) {
                 field[i][j] = empty;
             }
-            System.out.println();
         }
         for (int i = 0; i < field.length; i++) {
             int j = (int) (Math.random() * width);
             field[i][j] = robotank;
         }
-        for (int i = 0; i < bombs.length; i++) {
-            for ( int j = 10; j > 0;) {
-                int k = (int) (Math.random() * width);
-                if( bombs[i][k] == 0){
-                    bombs[i][k] = 1;
-                    j--;
+        int countRobotank = 10;
+        while (countRobotank > 0) {
+            bombs = new int[height][width];
+            for (int i = 0; i < bombs.length; i++) {
+                for (int j = 10; j > 0; ) {
+                    int k = (int) (Math.random() * width);
+                    if (bombs[i][k] == 0) {
+                        bombs[i][k] = 1;
+                        j--;
+                    }
                 }
             }
-        }
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                if(field[i][j].equals(robotank) && bombs[i][j] == 1){
-                    field[i][j] = hit;
+            for (int i = 0; i < height; i++) {
+                for (int j = 0; j < width; j++) {
+                    if (field[i][j].equals(robotank) && bombs[i][j] == 1) {
+                        field[i][j] = hit;
+                        countRobotank--;
+                    }
                 }
             }
         }

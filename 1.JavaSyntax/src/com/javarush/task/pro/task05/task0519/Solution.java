@@ -12,6 +12,13 @@ public class Solution {
     public static int element = 5;
 
     public static void main(String[] args) {
-        //напишите тут ваш код
+        int array2[] = Arrays.copyOf(array, array.length);
+        Arrays.sort(array2);
+        int a = Arrays.binarySearch(array2, element);
+        if(a >= 0){
+            System.out.println("true");
+        }else{
+            System.out.println("false");
+        }
     }
 }

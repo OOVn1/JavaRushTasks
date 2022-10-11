@@ -8,13 +8,13 @@ public class Solution {
     public static void main(String[] args) {
         int[] array = {123, 7, -14, 67, 16, 98, 75, 576};
         System.out.println("В массиве: ");
-//        printArray(array);
+        printArray(array);
         System.out.println("Минимальное число: " + getMinValue(array));
-//        System.out.println("Максимальное число: " + getMaxValue(array));
+        System.out.println("Максимальное число: " + getMaxValue(array));
 
     }
 
-    public int getMaxValue(int[] array) {
+    public static int getMaxValue(int[] array) {
         int max = Integer.MIN_VALUE;
         for (int value : array) {
             if (value > max) {
@@ -34,7 +34,7 @@ public class Solution {
         return min;
     }
 
-    public void printArray(int[] array) {
+    public static void printArray(int[] array) {
         for (int i : array) {
             System.out.print(i + " ");
         }

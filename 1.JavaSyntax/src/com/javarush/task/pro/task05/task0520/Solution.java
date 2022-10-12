@@ -6,7 +6,7 @@ package com.javarush.task.pro.task05.task0520;
 
 public class Solution {
 
-    public static int result;
+    public static int result = 105;
 
     public static void main(String[] args) {
         byte correction = Byte.MAX_VALUE;

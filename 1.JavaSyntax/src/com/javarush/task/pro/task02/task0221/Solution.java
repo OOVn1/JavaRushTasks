@@ -7,6 +7,6 @@ public class Solution {
         String numberS = "87";
         String numberF = "89";
         String comma = ",";
-        System.out.println(latitude+comma+longitude+numberF+numberS);
+        System.out.println(latitude+numberF+comma+longitude+numberF+numberS);
     }
 }

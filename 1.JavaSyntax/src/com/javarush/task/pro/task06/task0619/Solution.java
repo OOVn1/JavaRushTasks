@@ -10,13 +10,12 @@ public class Solution {
 
     public static void main(String[] args) {
         for (int i = 0; i < deadMen.length; i++) {
-            String str = deadMen[i] + " был уничтожен";
-            destroyDeadMan(str);
+            String name = deadMen[i];
+            System.out.println(destroyDeadMan(name));
         }
     }
 
-    public static String destroyDeadMan(String str) {
-        System.out.println(str);
-        return str;
+    public static String destroyDeadMan(String name) {
+        return name + " был уничтожен";
     }
 }

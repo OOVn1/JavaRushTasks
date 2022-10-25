@@ -13,27 +13,17 @@ public class MagicBall {
     private static final String VERY_DOUBTFUL = "Весьма сомнительно";
 
     public static String getPrediction() {
-        Random random = new Random();
-        int result = random.nextInt(8);
-        String string = null;
-        switch (result) {
-            case 0: string = CERTAIN;
-                break;
-            case 1: string = DEFINITELY;
-                break;
-            case 2: string = MOST_LIKELY;
-                break;
-            case 3: string = OUTLOOK_GOOD;
-                break;
-            case 4: string = ASK_AGAIN_LATER;
-                break;
-            case 5: string = TRY_AGAIN;
-                break;
-            case 6: string = NO;
-                break;
-            case 7: string = VERY_DOUBTFUL;
-                break;
-        }
-        return string;
+        return switch (new Random().nextInt(8)) {
+            case 0 -> CERTAIN;
+            case 1 -> DEFINITELY;
+            case 2 -> MOST_LIKELY;
+            case 3 -> OUTLOOK_GOOD;
+            case 4 -> ASK_AGAIN_LATER;
+            case 5 -> TRY_AGAIN;
+            case 6 -> NO;
+            case 7 -> VERY_DOUBTFUL;
+            default -> null;
+        };
+
     }
 }

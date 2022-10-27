@@ -1,4 +1,4 @@
-яpackage com.javarush.task.pro.task08.task0819;
+package com.javarush.task.pro.task08.task0819;
 
 import java.util.Random;
 

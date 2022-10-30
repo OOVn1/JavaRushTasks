@@ -16,7 +16,16 @@ public class Solution {
     public static double[] safeRoute = new double[25];
 
     public static void main(String[] args) {
-        //напишите тут ваш код
-
+        int a = 0;
+        for (int i = 0; i < anomalySpace.length; i++) {
+            int x = anomalySpace[i][0];
+            int y = anomalySpace[i][1];
+            int z = anomalySpace[i][2];
+            double result = Math.sin(x) * Math.PI + Math.cos(y) * Math.min(x, Math.min(y, z)) + Math.tan(y) / Math.log(z);
+            if(result > 99 && result < 201) {
+                safeRoute[a] = result;
+                a++;
+            }
+        }
     }
 }

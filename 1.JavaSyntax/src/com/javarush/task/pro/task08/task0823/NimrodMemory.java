@@ -16,7 +16,15 @@ public class NimrodMemory {
     }
 
     public static void markForDeletion() {
-        //напишите тут ваш код
-
+        for (int i = 0; i < santaFabrica.length; i++) {
+            santaFabrica[i] = santaFabrica[i] | (1 << 13);
+            santaFabrica[i] = santaFabrica[i] | (1 << 21);
+            santaFabrica[i] = santaFabrica[i] | (1 << 29);
+        }
+        for (int i = 0; i < eroticSimulators.length; i++) {
+            eroticSimulators[i] = eroticSimulators[i] | (1 << 13);
+            eroticSimulators[i] = eroticSimulators[i] | (1 << 21);
+            eroticSimulators[i] = eroticSimulators[i] | (1 << 29);
+        }
     }
 }

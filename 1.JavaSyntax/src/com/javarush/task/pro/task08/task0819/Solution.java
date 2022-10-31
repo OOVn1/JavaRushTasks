@@ -12,7 +12,7 @@ public class Solution {
 
     public static void main(String[] args) {
         Random random = new Random();
-
+        //напишите тут ваш код
 
     }
 }

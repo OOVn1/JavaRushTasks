@@ -12,7 +12,12 @@ public class Solution {
 
     public static void main(String[] args) {
         Random random = new Random();
-        //напишите тут ваш код
-
+        for (int i = 0; i < 30; i++) {
+            int number = random.nextInt(upperBound - lowerBound) + lowerBound;
+            int result = nextAttempt(number);
+            if(result == number){
+                break;
+            }
+        }
     }
 }

@@ -17,8 +17,10 @@ public class Solution {
     }
 
     public static int changeBit(int number, int bit, boolean activate) {
-        //напишите тут ваш код
-
-        return 0;
+        if (activate) {
+            return number | bit;
+        } else {
+            return number & ~bit;
+        }
     }
 }

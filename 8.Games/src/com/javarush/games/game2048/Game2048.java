@@ -14,9 +14,9 @@ public class Game2048 extends Game {
         createNewNumber();
     }
     private void drawScene(){
-        for (int y = 0; y < gameField.length; y++) {
-            for (int x = 0; x < gameField.length; x++) {
-                setCellColoredNumber(x, y, gameField[y][x]);
+        for (int i = 0; i < gameField.length; i++) {
+            for (int j = 0; j < gameField.length; j++) {
+                setCellColoredNumber(i, j, gameField[j][i]);
             }
         }
     }
@@ -69,6 +69,22 @@ public class Game2048 extends Game {
         setCellValueEx(x, y, color, str);
 
     }
+    private boolean compressRow(int[] row){
+        int index = 0;
+        boolean result = false;
+        for (int i = 0; i < row.length;i++) {
+            if(row[i] > 0){
+                if(i != index){
+                   row[index]  = row[i];
+                   row[i] = 0;
+                   result = true;
+                }
+                index++;
+            }
+        }
+        return result;
+    }
+
 }
 
 //--module-path "C:\MyProjects\JavaRushTasks\lib\javafx-sdk-17.0.2\lib" --add-modules javafx.controls,javafx.fxml

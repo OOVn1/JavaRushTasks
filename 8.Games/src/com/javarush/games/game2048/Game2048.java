@@ -98,6 +98,23 @@ public class Game2048 extends Game {
 
         return result;
     }
+
+    @Override
+    public void onKeyPress(Key key) {
+        if(key == Key.LEFT){
+            moveLeft();
+        }else if (key == Key.RIGHT){
+            moveRight();
+        } else if (key == Key.UP) {
+            moveUp();
+        } else if (key == Key.DOWN) {
+            moveDown();
+        }
+    }
+    private void moveLeft(){}
+    private void moveRight(){}
+    private void moveUp(){}
+    private void moveDown(){}
 }
 
 //--module-path "C:\MyProjects\JavaRushTasks\lib\javafx-sdk-17.0.2\lib" --add-modules javafx.controls,javafx.fxml

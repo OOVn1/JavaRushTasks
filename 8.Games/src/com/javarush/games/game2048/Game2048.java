@@ -103,15 +103,29 @@ public class Game2048 extends Game {
     public void onKeyPress(Key key) {
         if(key == Key.LEFT){
             moveLeft();
+            drawScene();
         }else if (key == Key.RIGHT){
             moveRight();
+            drawScene();
         } else if (key == Key.UP) {
             moveUp();
+            drawScene();
         } else if (key == Key.DOWN) {
             moveDown();
+            drawScene();
         }
     }
-    private void moveLeft(){}
+    private void moveLeft(){
+        boolean flag = false;
+        for (int i = 0; i < gameField.length; i++) {
+            if(compressRow(gameField[i]) | mergeRow(gameField[i]) | compressRow(gameField[i])){
+                flag = true;
+            }
+        }
+        if(flag){
+            createNewNumber();
+        }
+    }
     private void moveRight(){}
     private void moveUp(){}
     private void moveDown(){}

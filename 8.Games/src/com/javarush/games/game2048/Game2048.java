@@ -126,9 +126,27 @@ public class Game2048 extends Game {
             createNewNumber();
         }
     }
-    private void moveRight(){}
-    private void moveUp(){}
-    private void moveDown(){}
+    private void moveRight(){
+        rotateClockwise();
+        rotateClockwise();
+        moveLeft();
+        rotateClockwise();
+        rotateClockwise();
+    }
+    private void moveUp(){
+        rotateClockwise();
+        rotateClockwise();
+        rotateClockwise();
+        moveLeft();
+        rotateClockwise();
+    }
+    private void moveDown(){
+        rotateClockwise();
+        moveLeft();
+        rotateClockwise();
+        rotateClockwise();
+        rotateClockwise();
+    }
     private void rotateClockwise(){
         int [][] newGameField = new int [SIDE][SIDE];
         for (int i = 0; i < SIDE; i++) {

@@ -175,6 +175,21 @@ public class Game2048 extends Game {
         isGameStopped = true;
         showMessageDialog(Color.NONE, "You win", Color.GREEN, 75);
     }
+    private boolean canUserMove(){
+        for (int i = 0; i < gameField.length; i++) {
+            for (int j = 0; j < gameField[i].length; j++) {
+                if(gameField[i][j] == 0){
+                    return true;
+                }else if(i < SIDE - 1 && gameField[i][j] == gameField[i + 1][j]){
+                    return true;
+                }else if(j < SIDE - 1 && gameField[i][j] == gameField[i][j + 1]){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 
 }
 

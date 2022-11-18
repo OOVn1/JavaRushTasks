@@ -2,6 +2,7 @@ package com.javarush.games.game2048;
 import com.javarush.engine.cell.*;
 
 public class Game2048 extends Game {
+    private int score;
     private boolean isGameStopped = false;
     private static final int SIDE = 4;
     private int[][] gameField = new int[SIDE][SIDE];
@@ -96,6 +97,8 @@ public class Game2048 extends Game {
                 row[i] = row[i] + row[i+1];
                 row[i+1] = 0;
                 result = true;
+                score += row[i];
+                setScore(score);
             }
         }
 
@@ -109,6 +112,8 @@ public class Game2048 extends Game {
         if(isGameStopped) {
             if (key == Key.SPACE) {
                 isGameStopped = false;
+                score = 0;
+                setScore(score);
                 createGame();
                 drawScene();
             }else {

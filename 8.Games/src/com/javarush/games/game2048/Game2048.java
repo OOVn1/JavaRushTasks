@@ -212,8 +212,6 @@ public class Game2048 extends Game {
         isGameStopped = true;
         showMessageDialog(Color.NONE, "Game over", Color.RED, 75);
     }
-
-
 }
 
 //--module-path "C:\MyProjects\JavaRushTasks\lib\javafx-sdk-17.0.2\lib" --add-modules javafx.controls,javafx.fxml

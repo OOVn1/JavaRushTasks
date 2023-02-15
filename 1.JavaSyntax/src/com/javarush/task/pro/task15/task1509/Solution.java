@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class Solution {
     public static void main(String[] args) {
         try (InputStream stream = System.in;
-             Scanner scanner = new Scanner(stream)){
+             Scanner scanner = new Scanner(stream)) {
             String line = scanner.nextLine();
             char[] chars = line.toCharArray();
             Set<Character> characters = new HashSet<>();
@@ -30,4 +30,3 @@ public class Solution {
         }
     }
 }
-

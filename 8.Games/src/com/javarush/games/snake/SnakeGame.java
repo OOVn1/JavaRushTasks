@@ -3,7 +3,7 @@ package com.javarush.games.snake;
 import com.javarush.engine.cell.Game;
 import com.javarush.engine.cell.*;
 
-public class SnakeGame extends Game {
+ class SnakeGame extends Game {
 
     public static final int WIDTH = 15;
     public static final int HEIGHT = 15;
@@ -22,6 +22,10 @@ public class SnakeGame extends Game {
         }
     }
 
-    private void createGame(){drawScene();}
+    private void createGame(){
+        drawScene();
+        Apple apple = new Apple(7, 7);
+        apple.draw(this);
+    }
 
 }

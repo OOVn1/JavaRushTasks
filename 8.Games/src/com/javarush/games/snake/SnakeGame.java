@@ -23,4 +23,5 @@ public class SnakeGame extends Game {
     }
 
     private void createGame(){drawScene();}
+
 }

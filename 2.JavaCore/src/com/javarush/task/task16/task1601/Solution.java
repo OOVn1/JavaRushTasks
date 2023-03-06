@@ -14,6 +14,7 @@ public class Solution {
         @Override
         public void run() {
             System.out.println("My first thread");
+            return;
         }
     }
 }

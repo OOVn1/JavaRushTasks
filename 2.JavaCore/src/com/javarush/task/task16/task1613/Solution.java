@@ -35,6 +35,7 @@ public class Solution {
                 }
             } catch (InterruptedException e) {
             }
+            return null;
         }
 
         private void printTime() throws InterruptedException {

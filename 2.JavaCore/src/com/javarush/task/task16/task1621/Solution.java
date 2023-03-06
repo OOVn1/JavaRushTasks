@@ -20,6 +20,7 @@ public class Solution {
             for (int i = 0; i < count; i++) {
                 printMsg();
             }
+            return null;
         }
 
         public void printMsg(){

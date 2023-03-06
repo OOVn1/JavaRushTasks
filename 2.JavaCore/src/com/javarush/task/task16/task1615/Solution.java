@@ -46,6 +46,7 @@ public class Solution {
                     waiting(); // ожидает
                 }
             }
+            return null;
         }
     }
 

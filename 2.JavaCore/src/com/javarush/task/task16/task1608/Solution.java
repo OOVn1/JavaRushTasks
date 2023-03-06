@@ -35,6 +35,7 @@ public class Solution {
             while (utteranceCount < totalSpeechCount * utterancesPerSpeech) {
                 utteranceCount++;
             }
+            return null;
         }
 
         public int getSpeechCount() {

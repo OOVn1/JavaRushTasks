@@ -66,5 +66,6 @@ class Horse extends Thread {
                 isFinished = true;
             }
         }
+        return s;
     }
 }

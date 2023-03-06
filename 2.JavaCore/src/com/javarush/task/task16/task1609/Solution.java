@@ -27,6 +27,7 @@ public class Solution {
         public void run() {
             System.out.println(getName() + " is starting to eat");
             System.out.println(getName() + " has finished eating");
+            return null;
         }
     }
 }

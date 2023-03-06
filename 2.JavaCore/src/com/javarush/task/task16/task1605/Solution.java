@@ -51,6 +51,7 @@ public class Solution {
             sleepNSeconds(1);
             Date date2 = stopPlaying();
             System.out.println("Playing " + (date2.getTime() - date1.getTime()) + " ms");
+            return null;
         }
     }
 }

@@ -35,6 +35,7 @@ public class Solution {
                 }
             } catch (InterruptedException e) {
             }
+            return null;
         }
 
         public void printCountdown() throws InterruptedException {

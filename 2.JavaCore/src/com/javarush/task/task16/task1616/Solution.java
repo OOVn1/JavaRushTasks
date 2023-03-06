@@ -36,6 +36,7 @@ public class Solution {
             } catch (InterruptedException e) {
                 System.out.println(seconds);
             }
+            return null;
         }
     }
 }

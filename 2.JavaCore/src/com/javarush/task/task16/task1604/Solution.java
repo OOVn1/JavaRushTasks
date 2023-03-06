@@ -22,6 +22,7 @@ public class Solution {
             for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
                 System.out.println(element);
             }
+            return null;
         }
     }
 }

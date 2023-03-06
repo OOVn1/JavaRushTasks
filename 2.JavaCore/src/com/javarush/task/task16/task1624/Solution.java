@@ -32,6 +32,7 @@ public class Solution {
                 System.out.println(message + i);
                 Solution.sleep();
             }
+            return null;
         }
     }
 }

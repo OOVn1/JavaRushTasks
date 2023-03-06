@@ -6,7 +6,7 @@ import java.util.List;
 /* 
 Список и нити
 */
-
+/*
 public class Solution {
     public static volatile List<Thread> list = new ArrayList<Thread>(5);
 
@@ -21,6 +21,8 @@ public class Solution {
     public static class SpecialThread implements Runnable {
         public void run() {
             System.out.println("it's a run method inside SpecialThread");
+            return null;
         }
     }
 }
+*/

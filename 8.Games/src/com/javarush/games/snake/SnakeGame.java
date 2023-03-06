@@ -24,8 +24,7 @@ import com.javarush.engine.cell.*;
 
     private void createGame(){
         drawScene();
-        Apple apple = new Apple(7, 7);
-        apple.draw(this);
+
     }
 
 }

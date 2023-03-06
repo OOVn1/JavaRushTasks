@@ -39,7 +39,7 @@ public class Solution {
 
         public void run() {
             printList(getList(20), getName());
-            return null;
+            return;
         }
     }
 }

@@ -35,7 +35,6 @@ public class Solution {
                 }
             } catch (InterruptedException e) {
             }
-            return null;
         }
 
         private void doStep() throws InterruptedException {

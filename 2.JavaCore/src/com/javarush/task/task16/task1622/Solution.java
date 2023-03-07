@@ -26,7 +26,7 @@ public class Solution {
         public void run() {
             while (true) {
                 System.out.println(this);
-                if (--countdownIndex == 0) return null;
+                if (--countdownIndex == 0)
                 try {
                     Thread.sleep(10);
                 }catch (InterruptedException e){

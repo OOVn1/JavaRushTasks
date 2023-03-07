@@ -38,7 +38,7 @@ public class Solution {
             } catch (InterruptedException e) {
             }
             System.out.println(getName() + ": Все котята в корзинке. " + getName() + " собрала их назад");
-            return null;
+
         }
 
         private void initAllKittens() throws InterruptedException {
@@ -55,7 +55,7 @@ public class Solution {
         public void run() {
             System.out.println(getName() + ", вылез из корзинки");
             investigateWorld();
-            return null;
+
         }
     }
 }

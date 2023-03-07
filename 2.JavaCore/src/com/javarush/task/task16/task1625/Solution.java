@@ -24,7 +24,7 @@ public class Solution {
             } catch (InterruptedException e) {
                 System.out.println("T1 was interrupted");
             }
-            return null;
+
         }
     }
 
@@ -37,7 +37,7 @@ public class Solution {
             } catch (InterruptedException e) {
                 System.out.println("T2 was interrupted");
             }
-            return null;
+
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.javarush.games.snake;
 
-import com.javarush.engine.cell.Game;
+
 import com.javarush.engine.cell.*;
 
  class SnakeGame extends Game {

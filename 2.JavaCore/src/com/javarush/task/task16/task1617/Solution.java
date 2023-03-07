@@ -34,7 +34,6 @@ public class Solution {
                     System.out.println("Прервано!");
                 }
             }
-            return null;
         }
     }
 }

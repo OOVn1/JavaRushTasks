@@ -25,9 +25,9 @@ public class Snake {
     public void draw(Game game) {
         Color color;
         for (int i = 0; i < snakeParts.size(); i++) {
-            if(isAlive){
+            if (isAlive) {
                 color = Color.BLACK;
-            }else {
+            } else {
                 color = Color.RED;
             }
             if (i == 0) {
@@ -42,5 +42,22 @@ public class Snake {
         this.direction = direction;
     }
 
-    public void move(){}
+    public void move() {
+    }
+
+    public GameObject createNewHead() {
+        if (direction == Direction.LEFT) {
+            return new GameObject(snakeParts.get(0).x - 1, snakeParts.get(0).y);
+        } else if(direction == Direction.DOWN){
+            return new GameObject(snakeParts.get(0).x, snakeParts.get(0).y + 1);
+        } else if(direction == Direction.RIGHT){
+            return new GameObject(snakeParts.get(0).x + 1, snakeParts.get(0).y);
+        }else {
+            return new GameObject(snakeParts.get(0).x, snakeParts.get(0).y - 1);
+        }
+    }
+
+    public void removeTail(){
+       snakeParts.remove(snakeParts.size() - 1);
+    }
 }

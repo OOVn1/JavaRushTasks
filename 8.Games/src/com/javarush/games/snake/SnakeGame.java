@@ -10,6 +10,7 @@ import com.javarush.engine.cell.*;
     private Snake snake;
     private int turnDelay;
     private Apple apple;
+    private boolean isGameStopped;
 
     @Override
     public void initialize() {
@@ -32,6 +33,7 @@ import com.javarush.engine.cell.*;
         setTurnTimer(turnDelay);
         snake = new Snake(WIDTH / 2, HEIGHT / 2);
         createNewApple();
+        isGameStopped = false;
         drawScene();
     }
 
@@ -40,6 +42,9 @@ import com.javarush.engine.cell.*;
          snake.move(apple);
          if(apple.isAlive == false){
              createNewApple();
+         }
+         if(snake.isAlive == false){
+             gameOver();
          }
          drawScene();
      }
@@ -59,6 +64,11 @@ import com.javarush.engine.cell.*;
 
      private void createNewApple(){
          apple = new Apple(getRandomNumber(WIDTH), getRandomNumber(HEIGHT));
+     }
 
+     private void gameOver(){
+        stopTurnTimer();
+        isGameStopped = true;
+        showMessageDialog(Color.WHITE, "ВЫ ПРОИГРАЛИ", Color.BLACK, 120);
      }
  }

@@ -31,13 +31,16 @@ import com.javarush.engine.cell.*;
         turnDelay = 300;
         setTurnTimer(turnDelay);
         snake = new Snake(WIDTH / 2, HEIGHT / 2);
-        apple = new Apple(5, 5);
+        createNewApple();
         drawScene();
     }
 
      @Override
      public void onTurn(int step) {
          snake.move(apple);
+         if(apple.isAlive == false){
+             createNewApple();
+         }
          drawScene();
      }
 
@@ -52,5 +55,10 @@ import com.javarush.engine.cell.*;
          }else if (key == Key.DOWN) {
              snake.setDirection(Direction.DOWN);
          }
+     }
+
+     private void createNewApple(){
+         apple = new Apple(getRandomNumber(WIDTH), getRandomNumber(HEIGHT));
+
      }
  }

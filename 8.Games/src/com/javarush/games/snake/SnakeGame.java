@@ -11,6 +11,7 @@ import com.javarush.engine.cell.*;
     private int turnDelay;
     private Apple apple;
     private boolean isGameStopped;
+    private static final int GOAL = 28;
 
     @Override
     public void initialize() {
@@ -46,6 +47,10 @@ import com.javarush.engine.cell.*;
          if(snake.isAlive == false){
              gameOver();
          }
+         if(snake.getLength() > GOAL){
+             win();
+         }
+
          drawScene();
      }
 
@@ -70,5 +75,11 @@ import com.javarush.engine.cell.*;
         stopTurnTimer();
         isGameStopped = true;
         showMessageDialog(Color.WHITE, "ВЫ ПРОИГРАЛИ", Color.BLACK, 120);
+     }
+
+     private void win(){
+        stopTurnTimer();
+        isGameStopped = true;
+        showMessageDialog(Color.WHITE, "ВЫ ВЫИГРАЛИ", Color.BLACK, 120);
      }
  }

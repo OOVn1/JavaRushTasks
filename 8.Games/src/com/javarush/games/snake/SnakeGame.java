@@ -19,7 +19,7 @@ import com.javarush.engine.cell.*;
     private void drawScene(){
         for (int i = 0; i < WIDTH; i++) {
             for (int j = 0; j < HEIGHT; j++) {
-                setCellColor(i, j, Color.BLACK);
+                setCellValueEx(i, j, Color.DARKSEAGREEN, "");
             }
         }
         snake.draw(this);

@@ -21,11 +21,26 @@ public class Rocket extends GameObject{
             x += speedX;
 
         }
-
-
+        checkBorders();
     }
 
     public Rocket(double x, double y) {
         super(x, y, ShapeMatrix.ROCKET);
+    }
+
+    private void checkBorders(){
+        if(x < 0){
+            x = 0;
+            speedX = 0;
+        }
+        if(x + width > MoonLanderGame.WIDTH){
+            x = MoonLanderGame.WIDTH - width;
+            speedX = 0;
+        }
+        if(y < 0){
+            y = 0;
+            speedY = 0;
+        }
+
     }
 }

@@ -5,6 +5,7 @@ public class Rocket extends GameObject{
     private double speedX = 0;
     private double speedY = 0;
     private double boost = 0.05;
+    private double slowdown = boost/10;
 
     public void move(boolean isUpPressed, boolean isLeftPressed, boolean isRightPressed){
         if(isUpPressed){
@@ -20,6 +21,17 @@ public class Rocket extends GameObject{
             speedX += boost;
             x += speedX;
 
+        }
+
+        if (!isLeftPressed && !isRightPressed && speedX > -slowdown && speedX <= slowdown){
+            speedX = 0;
+            x += speedX;
+        } else if (!isLeftPressed && !isRightPressed && speedX > slowdown) {
+            speedX -= slowdown;
+            x += speedX;
+        } else if (!isLeftPressed && !isRightPressed && speedX < -slowdown) {
+            speedX += slowdown;
+            x += speedX;
         }
         checkBorders();
     }

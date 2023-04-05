@@ -5,11 +5,13 @@ import com.javarush.engine.cell.*;
 public class MoonLanderGame extends Game {
     public static final int WIDTH = 64;
     public static final int HEIGHT = 64;
+
     private Rocket rocket;
     private GameObject landscape;
     private boolean isUpPressed;
     private boolean isLeftPressed;
     private boolean isRightPressed;
+    private GameObject platform;
 
     @Override
     public void initialize() {
@@ -40,6 +42,7 @@ public class MoonLanderGame extends Game {
     private void createGameObjects() {
         rocket = new Rocket(WIDTH / 2, 0);
         landscape = new GameObject(0, 25, ShapeMatrix.LANDSCAPE);
+        platform = new GameObject(23, MoonLanderGame.HEIGHT - 1, ShapeMatrix.PLATFORM);
     }
 
     @Override
@@ -82,6 +85,12 @@ public class MoonLanderGame extends Game {
     }
 
     private void check(){
+        if(rocket.isCollision(landscape) && !rocket.isCollision(platform)){
+            gameOver();
+        }
+        if(rocket.isCollision(platform)){
+            win();
+        }
 
     }
     private  void win(){

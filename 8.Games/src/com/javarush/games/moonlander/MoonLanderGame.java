@@ -73,6 +73,10 @@ public class MoonLanderGame extends Game {
             isLeftPressed = true;
             isRightPressed = false;
         }
+
+        if(Key.SPACE == key && isGameStopped) {
+            createGame();
+        }
     }
 
     @Override
@@ -102,6 +106,9 @@ public class MoonLanderGame extends Game {
         stopTurnTimer();
     }
     private void gameOver(){
-
-    }
+        rocket.crash();
+        isGameStopped = true;
+        showMessageDialog(Color.WHITE, "ВЫ ПРОИГРАЛИ", Color.RED, 125);
+        stopTurnTimer();
+        }
 }

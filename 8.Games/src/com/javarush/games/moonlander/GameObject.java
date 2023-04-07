@@ -9,6 +9,7 @@ public class GameObject {
     public int width;
     public int height;
 
+
     public GameObject(double x, double y, int[][] matrix) {
         this.x = x;
         this.y = y;
@@ -18,7 +19,7 @@ public class GameObject {
     }
 
     public void draw(Game game) {
-        if (matrix == null) {
+        if(matrix == null) {
             return;
         }
 

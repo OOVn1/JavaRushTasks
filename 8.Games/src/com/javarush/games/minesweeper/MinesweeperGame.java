@@ -125,12 +125,12 @@ public class MinesweeperGame extends Game {
 
     private void gameOver(){
         isGameStopped = true;
-        showMessageDialog(Color.WHITE, "ВЫ ПРОИГРАЛИ", Color.RED, 100);
+        showMessageDialog(Color.WHITE, "ВЫ ПРОИГРАЛИ", Color.RED, 75);
     }
 
     private void win(){
         isGameStopped = true;
-        showMessageDialog(Color.WHITE, "ВЫ ВЫИГРАЛИ", Color.GREEN, 100);
+        showMessageDialog(Color.WHITE, "ВЫ ВЫИГРАЛИ", Color.GREEN, 75);
     }
 
     private void restart(){

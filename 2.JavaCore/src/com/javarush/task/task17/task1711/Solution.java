@@ -20,6 +20,9 @@ public class Solution {
     }
 
     public static void main(String[] args) throws ParseException {
+        if(args == null || args.length < 1){
+            return;
+        }
         SimpleDateFormat input = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
         SimpleDateFormat output = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
         Person person = null;
@@ -42,17 +45,18 @@ public class Solution {
                 synchronized (allPeople){
                     for (int i = 1; i < args.length; i += 4) {
                         int id = Integer.parseInt(args[i]);
-                        if (id >= 0 & id < allPeople.size() & (person = allPeople.get(id)) != null) {
+                        if (id >= 0 && id < allPeople.size() && (person = allPeople.get(id)) != null) {
                             person.setName(args[i + 1]);
-                            if (args[i + 2].equalsIgnoreCase("M")) {
+                            if (args[i + 2].equalsIgnoreCase("м")) {
                                 person.setSex(Sex.MALE);
-                            } else if (args[i + 2].equalsIgnoreCase("Ж")) {
+                            } else if (args[i + 2].equalsIgnoreCase("ж")) {
                                 person.setSex(Sex.FEMALE);
                             }
                             person.setBirthDate(input.parse(args[i + 3]));
                         }
                     }
                 }
+                allPeople.forEach(System.out::println);
                 break;
             }
             case "-d": {
@@ -86,6 +90,5 @@ public class Solution {
                 break;
             }
         }
-        allPeople.forEach(System.out::println);
     }
 }

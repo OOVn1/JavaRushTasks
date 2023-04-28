@@ -38,5 +38,18 @@ public class Hippodrome {
     }
 
     void print() {
+        for (Horse hors : horses) {
+            hors.print();
+        }
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
     }
 }

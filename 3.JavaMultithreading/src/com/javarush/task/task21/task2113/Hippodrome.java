@@ -22,6 +22,7 @@ public class Hippodrome {
         horses.add(new Horse("Наталья", 3, 0));
         game = new Hippodrome(horses);
         game.run();
+        game.printWinner();
     }
 
     void run() throws InterruptedException {

@@ -22,4 +22,10 @@ public class Hippodrome {
         horses.add(new Horse("Наталья", 3, 0));
         game = new Hippodrome(horses);
     }
+
+    void run(){}
+
+    void move(){}
+
+    void print(){}
 }

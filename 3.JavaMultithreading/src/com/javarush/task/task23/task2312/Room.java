@@ -1,6 +1,8 @@
 package com.javarush.task.task23.task2312;
 
 
+import java.awt.event.KeyEvent;
+
 /**
  * Основной класс программы.
  */
@@ -53,7 +55,39 @@ public class Room {
      * Тут происходят все важные действия
      */
     public void run() {
+        //Создаем объект "наблюдатель за клавиатурой" и стартуем его.
+        KeyboardObserver keyboardObserver = new KeyboardObserver();
+        keyboardObserver.start();
 
+        //пока змея жива
+        while (snake.isAlive()) {
+            //"наблюдатель" содержит события о нажатии клавиш?
+            if (keyboardObserver.hasKeyEvents()) {
+                KeyEvent event = keyboardObserver.getEventFromTop();
+                //Если равно символу 'q' - выйти из игры.
+                if (event.getKeyChar() == 'q') return;
+
+                //Если "стрелка влево" - сдвинуть фигурку влево
+                if (event.getKeyCode() == KeyEvent.VK_LEFT)
+                    snake.setDirection(SnakeDirection.LEFT);
+                    //Если "стрелка вправо" - сдвинуть фигурку вправо
+                else if (event.getKeyCode() == KeyEvent.VK_RIGHT)
+                    snake.setDirection(SnakeDirection.RIGHT);
+                    //Если "стрелка вверх" - сдвинуть фигурку вверх
+                else if (event.getKeyCode() == KeyEvent.VK_UP)
+                    snake.setDirection(SnakeDirection.UP);
+                    //Если "стрелка вниз" - сдвинуть фигурку вниз
+                else if (event.getKeyCode() == KeyEvent.VK_DOWN)
+                    snake.setDirection(SnakeDirection.DOWN);
+            }
+
+            snake.move();   //двигаем змею
+            print();        //отображаем текущее состояние игры
+            sleep();        //пауза между ходами
+        }
+
+        //Выводим сообщение "Game Over"
+        System.out.println("Game Over!");
     }
 
     /**
@@ -94,9 +128,18 @@ public class Room {
     }
 
 
+    private int initialDelay = 520;
+    private int delayStep = 20;
+
     /**
-     * Программа делает паузу, длинна которой зависит от длинны змеи.
+     * Программа делает паузу, длинна которой зависит от длины змеи.
      */
     public void sleep() {
+        try {
+            int level = snake.getSections().size();
+            int delay = level < 15 ? (initialDelay - delayStep * level) : 200;
+            Thread.sleep(delay);
+        } catch (InterruptedException e) {
+        }
     }
 }

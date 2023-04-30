@@ -5,6 +5,7 @@ public class Room {
     private int height;
     private Snake snake;
     private Mouse mouse;
+    public static Room game;
 
     public Room(int width, int height, Snake snake) {
         this.width = width;
@@ -12,39 +13,48 @@ public class Room {
         this.snake = snake;
     }
 
-    public void setMouse(Mouse mouse) {
-        this.mouse = mouse;
-    }
-
-    public void setSnake(Snake snake) {
-        this.snake = snake;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
+    public int getWidth() {
+        return width;
     }
 
     public void setWidth(int width) {
         this.width = width;
     }
 
-    public Mouse getMouse() {
-        return mouse;
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     public Snake getSnake() {
         return snake;
     }
 
-    public int getHeight() {
-        return height;
+    public void setSnake(Snake snake) {
+        this.snake = snake;
     }
 
-    public int getWidth() {
-        return width;
+    public Mouse getMouse() {
+        return mouse;
     }
 
-    public static void main(String[] args){
+    public void setMouse(Mouse mouse) {
+        this.mouse = mouse;
+    }
+
+    public static void main(String[] args) {
+        game = new Room(20, 20, new Snake(10, 10));
+        game.snake.setDirection(SnakeDirection.DOWN);
+    }
+
+    void run() {
+    }
+
+    void print() {
 
     }
+
 }

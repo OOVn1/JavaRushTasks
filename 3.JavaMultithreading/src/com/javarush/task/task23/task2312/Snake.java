@@ -31,15 +31,36 @@ public class Snake {
         return sections;
     }
 
-    public void move() {
-
-    }
-
     public boolean isAlive() {
         return isAlive;
     }
 
     public SnakeDirection getDirection() {
         return direction;
+    }
+
+    /**
+     * Метод перемещает змею на один ход.
+     * Направление перемещения задано переменной direction.
+     */
+    public void move() {
+        if (!isAlive) return;
+
+        if (direction == SnakeDirection.UP)
+            move(0, -1);
+        else if (direction == SnakeDirection.RIGHT)
+            move(1, 0);
+        else if (direction == SnakeDirection.DOWN)
+            move(0, 1);
+        else if (direction == SnakeDirection.LEFT)
+            move(-1, 0);
+    }
+
+    /**
+     * Метод перемещает змею в соседнюю клетку.
+     * Координаты клетки заданы относительно текущей головы с помощью переменных (dx, dy).
+     */
+    void move(int dx, int dy) {
+
     }
 }

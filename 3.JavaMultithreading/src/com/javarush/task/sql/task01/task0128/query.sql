@@ -1,3 +1,2 @@
 -- Write your code here:
-SELECT * FROM car
-LIMIT 10;
+SELECT * FROM car LIMIT 10;

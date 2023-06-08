@@ -1,2 +1,2 @@
 -- Write your code here:
-SELECT brand, model, quantity FROM LIMIT 115;
+SELECT brand, model, quantity FROM car LIMIT 115;

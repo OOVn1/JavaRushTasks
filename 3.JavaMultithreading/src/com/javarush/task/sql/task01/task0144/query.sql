@@ -1,2 +1,2 @@
 -- Write your code here:
-SELECT description FROM parts ORDER BY required DESC, identifier DESC, description DESC OFFSET 23;
+SELECT description FROM parts ORDER BY required DESC, identifier DESC, description DESC LIMIT 1 OFFSET 23;

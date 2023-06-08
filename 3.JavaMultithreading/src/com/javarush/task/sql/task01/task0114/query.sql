@@ -1,2 +1,2 @@
 -- Write your code here:
-SELECT * FROM employee WHERE salary &lt;&gt 3200;
+SELECT * FROM employee WHERE salary <> 3200;

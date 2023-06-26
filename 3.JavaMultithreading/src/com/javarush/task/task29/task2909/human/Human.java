@@ -11,7 +11,6 @@ public class Human implements Alive{
     protected int age;
     protected String name;
 
-
     protected int[] size;
 
     public static final int FIRST = 1;
@@ -37,6 +36,14 @@ public class Human implements Alive{
 
     public void live() {
         
+    }
+
+    public String getPosition(){
+        return "Человек";
+    }
+
+    public void printData() {
+        System.out.println(getPosition() + ": " + name);
     }
 
     public List<Human> getChildren() {

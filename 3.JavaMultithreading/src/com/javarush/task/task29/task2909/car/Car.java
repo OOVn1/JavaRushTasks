@@ -7,9 +7,7 @@ public abstract class Car {
     static public final int SEDAN = 1;
     static public final int CABRIOLET = 2;
 
-    public
-
-    double fuel;
+    public double fuel;
 
     public double summerFuelConsumption;
     public double winterFuelConsumption;

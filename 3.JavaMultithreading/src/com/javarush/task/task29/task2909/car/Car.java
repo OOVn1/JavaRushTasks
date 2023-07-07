@@ -1,5 +1,8 @@
 package com.javarush.task.task29.task2909.car;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Date;
 
 public abstract class Car {
@@ -14,7 +17,8 @@ public abstract class Car {
     public double winterWarmingUp;
 
     private int type;
-
+    @Getter
+    @Setter
     private boolean driverAvailable;
     private int numberOfPassengers;
 
@@ -59,14 +63,6 @@ public abstract class Car {
         if (!canPassengersBeTransferred())
             return 0;
         return numberOfPassengers;
-    }
-
-    public boolean isDriverAvailable() {
-        return driverAvailable;
-    }
-
-    public void setDriverAvailable(boolean driverAvailable) {
-        this.driverAvailable = driverAvailable;
     }
 
     public void startMoving() {

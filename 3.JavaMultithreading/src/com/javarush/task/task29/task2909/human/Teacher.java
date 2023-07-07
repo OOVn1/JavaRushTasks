@@ -1,10 +1,11 @@
 package com.javarush.task.task29.task2909.human;
 
-import java.util.ArrayList;
-import java.util.List;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class Teacher extends UniversityPerson {
-    private int numberOfStudents;
+    int numberOfStudents;
 
     public Teacher(String name, int age, int numberOfStudents) {
         super(name, age);

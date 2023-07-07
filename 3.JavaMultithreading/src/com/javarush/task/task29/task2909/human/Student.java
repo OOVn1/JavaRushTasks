@@ -1,14 +1,19 @@
 package com.javarush.task.task29.task2909.human;
 
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import java.util.Date;
 
-
+@Setter
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Student extends UniversityPerson {
-    private double averageGrade;
-    private Date beginningOfSession;
-    private Date endOfSession;
-    private int course;
+    @Getter
+    double averageGrade;
+    Date beginningOfSession;
+    Date endOfSession;
+    @Getter
+    int course;
 
     public Student(String name, int age, double averageGrade) {
         super(name, age);
@@ -29,29 +34,5 @@ public class Student extends UniversityPerson {
 
     public String getPosition(){
         return "Студент";
-    }
-
-    public void setBeginningOfSession(Date date) {
-        beginningOfSession = date;
-    }
-
-    public void setEndOfSession(Date date) {
-        endOfSession = date;
-    }
-
-    public double getAverageGrade() {
-        return averageGrade;
-    }
-
-    public int getCourse() {
-        return course;
-    }
-
-    public void setAverageGrade(double averageGrade) {
-        this.averageGrade = averageGrade;
-    }
-
-    public void setCourse(int course) {
-        this.course = course;
     }
 }

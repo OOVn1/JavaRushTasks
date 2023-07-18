@@ -6,6 +6,8 @@ import com.javarush.task.task30.task3008.Message;
 import com.javarush.task.task30.task3008.MessageType;
 
 import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
 
 public class Client {
 
@@ -124,6 +126,19 @@ public class Client {
                 } else {
                     throw new IOException("Unexpected MessageType");
                 }
+            }
+        }
+
+        @Override
+        public void run() {
+            String serverAddress = getServerAddress();
+            int serverPort = getServerPort();
+            try (Socket socket = new Socket(serverAddress, serverPort)) {
+                connection = new Connection(socket);
+                clientHandshake();
+                clientMainLoop();
+            }catch (IOException | ClassNotFoundException e){
+                notifyConnectionStatusChanged(false);
             }
         }
     }

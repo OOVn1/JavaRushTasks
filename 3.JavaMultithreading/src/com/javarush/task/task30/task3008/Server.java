@@ -28,6 +28,7 @@ public class Server {
         ConsoleHelper.writeMessage("Введите порт сервера");
         int port = ConsoleHelper.readInt();
         try (ServerSocket serverSocket = new ServerSocket(port)){
+        //try (ServerSocket serverSocket = new ServerSocket(port, 0, 'i')){
             ConsoleHelper.writeMessage("Чат запущен");
             while (true){
                 Socket accept = serverSocket.accept();

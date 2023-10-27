@@ -12,5 +12,7 @@ public class Archiver {
         ZipFileManager zipFileManager = new ZipFileManager(Paths.get(scanner.nextLine()));
         System.out.println("Введите путь к файлу, который необходимо архивировать");
         zipFileManager.createZip(Paths.get(scanner.nextLine()));
+
+
     }
 }

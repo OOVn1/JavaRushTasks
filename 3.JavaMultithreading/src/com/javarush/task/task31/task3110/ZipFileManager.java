@@ -145,7 +145,7 @@ public class ZipFileManager {
             while ((zipEntry = zipInputStream.getNextEntry()) != null) {
                 if (pathList.contains(Paths.get(zipEntry.getName()))) {
                     ConsoleHelper.writeMessage("Файл " + zipEntry.getName() + " удален из архива.");
-                }else {
+                } else {
                     zipOutputStream.putNextEntry(zipEntry);
                     copyData(zipInputStream, zipOutputStream);
                     zipInputStream.closeEntry();
@@ -156,7 +156,56 @@ public class ZipFileManager {
         Files.move(tmp, zipFile, StandardCopyOption.REPLACE_EXISTING);
     }
 
-    public void removeFile(Path path) throws Exception{
+    public void removeFile(Path path) throws Exception {
         removeFiles(Collections.singletonList(path));
+    }
+
+    public void addFiles(List<Path> absolutePathList) throws Exception {
+        if (!Files.isRegularFile(zipFile)) {
+            throw new WrongZipFileException();
+        }
+        Path tmp = Files.createTempFile("tmp", null);
+        try (ZipOutputStream zipOutputStream = new ZipOutputStream(Files.newOutputStream(tmp));
+             ZipInputStream zipInputStream = new ZipInputStream(Files.newInputStream(zipFile))) {
+            ZipEntry zipEntry;
+            List<Path> archivePathList = new ArrayList<>();
+            while ((zipEntry = zipInputStream.getNextEntry()) != null) {
+                zipOutputStream.putNextEntry(zipEntry);
+                copyData(zipInputStream, zipOutputStream);
+                zipInputStream.closeEntry();
+                zipOutputStream.closeEntry();
+                archivePathList.add(Paths.get(zipEntry.getName()));
+            }
+            for (Path path : absolutePathList) {
+                if (archivePathList.contains(path.getFileName())) {
+                    ConsoleHelper.writeMessage(path + " файл уже есть в архиве.");
+                    continue;
+                }
+                if (Files.isDirectory(path)) {
+                    FileManager fileManager = new FileManager(path);
+                    List<Path> fileList = fileManager.getFileList();
+                    for (Path file : fileList) {
+                        Path resolve = path.getFileName().resolve(file);
+                        if (archivePathList.contains(resolve.getFileName())) {
+                            ConsoleHelper.writeMessage(resolve + " уже есть в архиве");
+                            continue;
+                        }
+                        addNewZipEntry(zipOutputStream, path.getParent(), resolve);
+                        ConsoleHelper.writeMessage(resolve + " добавлен в архив");
+                    }
+                } else if (Files.isRegularFile(path)) {
+                    addNewZipEntry(zipOutputStream, path.getParent(), path.getFileName());
+                    ConsoleHelper.writeMessage(path + " добавлен в архив");
+                }else {
+                    throw new PathIsNotFoundException();
+                }
+
+            }
+        }
+        Files.move(tmp, zipFile, StandardCopyOption.REPLACE_EXISTING);
+    }
+
+    public void addFile(Path absolutePath) throws Exception{
+        addFiles(Collections.singletonList(absolutePath));
     }
 }

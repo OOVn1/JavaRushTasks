@@ -20,11 +20,11 @@ public class Controller {
         return document;
     }
 
-    public void init(){
+    public void init() {
         createNewDocument();
     }
 
-    public void exit(){
+    public void exit() {
         System.exit(0);
     }
 
@@ -36,8 +36,8 @@ public class Controller {
         controller.init();
     }
 
-    public void resetDocument(){
-        if(Objects.nonNull(document)){
+    public void resetDocument() {
+        if (Objects.nonNull(document)) {
             document.removeUndoableEditListener(view.getUndoListener());
         }
         document = (HTMLDocument) new HTMLEditorKit().createDefaultDocument();
@@ -45,16 +45,16 @@ public class Controller {
         view.update();
     }
 
-    public void setPlainText(String text){
+    public void setPlainText(String text) {
         resetDocument();
-        try (StringReader stringReader = new StringReader(text)){
+        try (StringReader stringReader = new StringReader(text)) {
             new HTMLEditorKit().read(stringReader, document, 0);
         } catch (IOException | BadLocationException e) {
             ExceptionHandler.log(e);
         }
     }
 
-    public String getPlainText(){
+    public String getPlainText() {
         StringWriter stringWriter = new StringWriter();
         try {
             HTMLEditorKit htmlEditorKit = new HTMLEditorKit();
@@ -73,9 +73,35 @@ public class Controller {
     }
 
     public void openDocument() {
+        view.selectHtmlTab();
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.setFileFilter(new HTMLFileFilter());
+        if (jFileChooser.showOpenDialog(view) == JFileChooser.APPROVE_OPTION) {
+            currentFile = jFileChooser.getSelectedFile();
+            resetDocument();
+            view.setTitle(currentFile.getName());
+            try (FileReader reader = new FileReader(currentFile)) {
+                HTMLEditorKit htmlEditorKit = new HTMLEditorKit();
+                htmlEditorKit.read(reader, document, 0);
+            } catch (IOException | BadLocationException e) {
+                ExceptionHandler.log(e);
+            }
+            view.resetUndo();
+        }
     }
 
     public void saveDocument() {
+        view.selectHtmlTab();
+        if (currentFile != null) {
+            try (FileWriter fileWriter = new FileWriter(currentFile)) {
+                HTMLEditorKit htmlEditorKit = new HTMLEditorKit();
+                htmlEditorKit.write(fileWriter, document, 0, document.getLength());
+            } catch (IOException | BadLocationException e) {
+                ExceptionHandler.log(e);
+            }
+        } else {
+            saveDocumentAs();
+        }
 
     }
 
@@ -83,13 +109,13 @@ public class Controller {
         view.selectHtmlTab();
         JFileChooser jFileChooser = new JFileChooser();
         jFileChooser.setFileFilter(new HTMLFileFilter());
-        if(jFileChooser.showSaveDialog(view) == JFileChooser.APPROVE_OPTION){
+        if (jFileChooser.showSaveDialog(view) == JFileChooser.APPROVE_OPTION) {
             currentFile = jFileChooser.getSelectedFile();
             view.setTitle(currentFile.getName());
-            try (FileWriter fileWriter = new FileWriter(currentFile)){
+            try (FileWriter fileWriter = new FileWriter(currentFile)) {
                 HTMLEditorKit htmlEditorKit = new HTMLEditorKit();
                 htmlEditorKit.write(fileWriter, document, 0, document.getLength());
-            }catch (IOException | BadLocationException e){
+            } catch (IOException | BadLocationException e) {
                 ExceptionHandler.log(e);
             }
         }
